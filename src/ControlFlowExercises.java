@@ -1,3 +1,6 @@
+import java.util.Locale;
+import java.util.Scanner;
+
 public class ControlFlowExercises {
     public static void main(String[] args) {
 
@@ -73,7 +76,19 @@ public class ControlFlowExercises {
         //        2.a.3 For the multiples of five: print “Buzz”.
         //        2.a.4 For numbers which are multiples of both three and five: print “FizzBuzz”.
 
-
+        /**
+        for (int i = 0; i <= 100; i++) {
+            if(i % 3 == 0 && i % 5 == 0){
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0){
+                System.out.println("Fizz");
+            } else if (i % 5 == 0){
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
+        }
+         */
 
         // 3. Display a table of powers.
         //    3.a Prompt the user to enter an integer.
@@ -81,6 +96,32 @@ public class ControlFlowExercises {
         //    3.c Ask if the user wants to continue.
         //    3.d Assume that the user will enter valid data.
         //    3.e Only continue if the user agrees to.
+
+        /**
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter an integer:  ");
+        int userInt = sc.nextInt();
+
+        System.out.println("Would you like to continue?  (Yes/No)");
+        String userStr = sc.next();
+
+        String th = "here is your table!\n" +
+                    "\n" +
+                    "number\t| squared\t| cubed \n" +
+                    "------\t| -------\t| -----";
+
+
+        if(userStr.toLowerCase().equals("yes") || userStr.toLowerCase().equals("y")){
+            System.out.println(th);
+            for (int i = 0; i < userInt; i++) {
+                System.out.println(i + "\t\t| " + (i * i) + " \t\t| " + (i * i * i));
+            }
+        } else {
+            System.out.println("That is too bad.  I see your number was " + userInt + ".\n" +
+                    "That would have been fun to calculate");
+        }
+         */
 
 
         // 4. Convert given number grades into letter grades.
@@ -97,11 +138,77 @@ public class ControlFlowExercises {
         //          -- D : 66 - 60
         //          -- F : 59 - 0
 
+        /**
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please provide a numeric grade from 0 to 100:  ");
+        int scInt = sc.nextInt();
+
+        System.out.println("Thank you, would you like the letter grade?  (Yes/No)");
+        String scStr = sc.next();
+
+        if(scStr.toLowerCase().equals("yes") || scStr.toLowerCase().equals("y")){
+            if(scInt > 87 ){
+                System.out.print(scInt + " : A");
+            } else if(scInt > 79){
+                System.out.println(scInt + " : B");
+            } else if(scInt > 66){
+                System.out.println(scInt + " : C");
+            } else if(scInt > 59){
+                System.out.println(scInt + " : D");
+            } else {
+                System.out.println(scInt + " : F");
+            }
+        } else {
+            System.out.println("Ok, that's fine.  Have a nice day.");
+        }
+        */
+
 
         // BONUS
         // 5. Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
 
+        /**
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Please provide a numeric grade from 0 to 100:  ");
+        int scInt = sc.nextInt();
+
+        System.out.println("Thank you, would you like the letter grade?  (Yes/No)");
+        String scStr = sc.next();
+
+        if(scStr.toLowerCase().equals("yes") || scStr.toLowerCase().equals("y")){
+            if(scInt > 96 ){
+                System.out.print(scInt + " : +A");
+            } else if(scInt > 93){
+                System.out.println(scInt + " : A");
+            } else if(scInt > 89){
+                System.out.println(scInt + " : A-");
+            } else if(scInt > 86){
+                System.out.println(scInt + " : B+");
+            } else if(scInt > 83){
+                System.out.println(scInt + " : B");
+            } else if(scInt > 79){
+                System.out.println(scInt + " : B-");
+            } else if(scInt > 76){
+                System.out.println(scInt + " : C+");
+            } else if(scInt > 73){
+                System.out.println(scInt + " : C");
+            } else if(scInt > 69){
+                System.out.println(scInt + " : C-");
+            } else if(scInt > 66){
+                System.out.println(scInt + " : D+");
+            } else if(scInt > 63){
+                System.out.println(scInt + " : D");
+            } else if(scInt > 59){
+                System.out.println(scInt + " : D-");
+            } else {
+                System.out.println(scInt + " : F");
+            }
+        } else {
+            System.out.println("Ok, that's fine.  Have a nice day.");
+        }
+        */
 
     }
 }
