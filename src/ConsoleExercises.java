@@ -96,6 +96,8 @@ public class ConsoleExercises {
 
 
         // BONUS
+
+        /**
         Scanner sc = new Scanner(System.in);
         sc.useDelimiter("\n");
 
@@ -109,6 +111,6 @@ public class ConsoleExercises {
         System.out.println("The room's parameter is:  " + par + " ft.");
         System.out.println("The room's area is:  " + area + "ft.");
         System.out.println("The room's volume is:  " + volume + "ft.");
-
+        */
     }
 }
