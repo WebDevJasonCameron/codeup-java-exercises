@@ -31,7 +31,7 @@ public class ControlFlowExercises {
         int x = 0;
         do {
             System.out.println(x);
-            x = x + 2;
+            x += 2;
         } while(x <= 100);
 
         x = x -2;
@@ -39,13 +39,13 @@ public class ControlFlowExercises {
         do {
             System.out.println(x);
             x = x -5;
-
+         } while(x >= -10);
 
         long y = 2;
 
         do {
             System.out.println("z is: " + y);
-            y = y * y;
+            y *= y;
         } while(y < 1000000);
         */
 
@@ -115,7 +115,7 @@ public class ControlFlowExercises {
         if(userStr.toLowerCase().equals("yes") || userStr.toLowerCase().equals("y")){
             System.out.println(th);
             for (int i = 0; i < userInt; i++) {
-                System.out.println(i + "\t\t| " + (i * i) + " \t\t| " + (i * i * i));
+                System.out.println(i + "\t\t |" + (i * i) + " \t\t| " + (i * i * i));
             }
         } else {
             System.out.println("That is too bad.  I see your number was " + userInt + ".\n" +
