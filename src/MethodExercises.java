@@ -1,5 +1,6 @@
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.Random;
 
 public class MethodExercises {
     public static void main(String[] args) {
@@ -22,64 +23,21 @@ public class MethodExercises {
         inRange(5, 7);
         */
 
+        /**
         // Problem 3
         factorialConversation();
+        */
 
-
-
-        // BONUS
-
-        //    3.B.1 Test the application and find the integer for the highest factorial that
-        //          can be accurately calculated by this application, then modify the prompt
-        //          so that it prompts the user for a number "from 1 to {the highest integer
-        //          that returns accurate factorial calculation}". Don’t forget to change your
-        //          verification too!
-        //    3.B.2 Use recursion to implement the factorial.
+        /**
+        // Problem 4
+        rollDice();
+        */
 
 
 
 
 
-
-        //    4. Create an application that simulates dice rolling.
-        //       4.1 Ask the user to enter the number of sides for a pair of dice.
-        //       4.2 Prompt the user to roll the dice.
-        //       4.3 "Roll" two n-sided dice, display the results of each, and then ask the user
-        //           if he/she wants to roll the dice again.
-        //       4.4 Use static methods to implement the method(s) that generate the random numbers.
-        //       4.5 Use the .random method of the java.lang.Math class to generate random numbers.
-
-
-
-
-
-
-        //    5. Game Development 101
-        //       5.1 Welcome to the world of game development!
-        //           You are going to build a high-low guessing game. Create a class named HighLow
-        //           inside of src.
-        //
-        //       5.2 The specs for the game are:
-        //
-        //           5.2.1 Game picks a random number between 1 and 100.
-        //           5.2.2 Prompts user to guess the number.
-        //           5.2.3 All user inputs are validated.
-        //           5.2.4 If user's guess is less than the number, it outputs "HIGHER".
-        //           5.2.5 If user's guess is more than the number, it outputs "LOWER".
-        //           5.2.6 If a user guesses the number, the game should declare "GOOD GUESS!"
-        //
-        //           --- Hints
-        //
-        //               Use the random method of the java.lang.Math class to generate a random number.
-
-        // BONUS
-
-        //   5.B.1 Keep track of how many guesses a user makes.
-        //   5.B.2 Set an upper limit on the number of guesses.
-
-
-
-    }  //  <-- MAIN
+    }  //  <-- END MAIN
 
 // 1. Basic Arithmetic
 //    1.1 Create four separate methods. Each will perform an arithmetic operation:
@@ -182,6 +140,26 @@ public class MethodExercises {
     //       3.8 A factorial is a number multiplied by each of the numbers before it.
     //       3.9 Factorials are denoted by the exclamation point (n!). Ex:
 
+    //------KEY------------------------------
+    // 5 * 4 = 20 * 3 = 60 * 2 = 120 * 1 = 120
+    // f * i
+    //         f * i
+    //                   f * i
+    //                            f * i
+
+    // BONUS
+
+    //    3.B.1 Test the application and find the integer for the highest factorial that
+    //          can be accurately calculated by this application, then modify the prompt
+    //          so that it prompts the user for a number "from 1 to {the highest integer
+    //          that returns accurate factorial calculation}". Don’t forget to change your
+    //          verification too!
+    //          <--DONE
+    //    3.B.2 Use recursion to implement the factorial.
+    //          <--DONE
+
+
+
     public static int factorialNum(int n){
         int f = n;
         for (int i = (n-1); i > 0; i--) {
@@ -205,7 +183,7 @@ public class MethodExercises {
     public static void factorialConversation(){
         Scanner sc = new Scanner(System.in);
         boolean flag = false;
-        int n =  inRange(1, 10);
+        int n =  inRange(1, 20);
 
         System.out.println("The Factorial Number of " + n + " is: " + factorialNum(n) +"\n");
 
@@ -220,17 +198,108 @@ public class MethodExercises {
                 flag = true;
             }
         }
+    }
 
+    //    4. Create an application that simulates dice rolling.
+    //       4.1 Ask the user to enter the number of sides for a pair of dice.
+    //       4.2 Prompt the user to roll the dice.
+    //       4.3 "Roll" two n-sided dice, display the results of each, and then ask the user
+    //           if he/she wants to roll the dice again.
+    //       4.4 Use static methods to implement the method(s) that generate the random numbers.
+    //       4.5 Use the .random method of the java.lang.Math class to generate random numbers.
 
+    public static int getMax(Scanner sc){
+        while (true){
+            System.out.println("How many sides are there to our dice?  ");
+            int sNum = sc.nextInt();
+            if(checkSideAmount(sNum)) return sNum;
+            else {
+                System.out.println("I'm sorry, that is an invalid entry for the amount of sides on a di.\n" +
+                        "Please try again...");
+            }
+        }
+    }
 
+    public static boolean checkSideAmount(int sNum){
+        return sNum > 2;
+    }
+
+    public static int roll(int max){
+        Random random = new Random();
+        return random.nextInt(max);
+    }
+
+    public static void askToRoll(int sides, Scanner sc){
+        System.out.println("Sounds great.  Please roll our two " +
+                sides + "-sided dice.\n  You may type \"Roll\" or just \"r\" if your lazy.");
+        String ui = sc.next().toLowerCase(Locale.ROOT);
+
+        if(ui.equals("roll") || ui.equals("r")){
+            int d1 = roll(sides);
+            int d2 = roll(sides);
+            System.out.println("The first di shows, " +
+                    d1 + ", while the second di is, " +
+                    d2 + ".");
+        } else {
+            System.out.println("I thought you wanted to play dice.\n" +
+                    "I suppose some folks don't like to gamble...");
+        }
+    }
+
+    public static void askToPlayAgain(int sides, Scanner sc){
+        while(true){
+            System.out.println("Would you like to roll again? (Yes/No)");
+            String response = sc.next();
+            if(response.equals("yes") || response.equals("y")){
+                askToRoll(sides, sc);
+            } else if (response.equals("no") || response.equals("n")){
+                System.out.println("Ok.  I suppose that is enough playing for now...");
+                break;
+            } else {
+                System.out.println("I'm sorry, I didn't recognize that response.");
+            }
+        }
+    }
+
+    public static void rollDice(){
+        Scanner sc = new Scanner(System.in);
+
+        int sides = getMax(sc);
+        askToRoll(sides, sc);
+        askToPlayAgain(sides, sc);
 
     }
-            //------KEY------------------------------
-            // 5 * 4 = 20 * 3 = 60 * 2 = 120 * 1 = 120
-            // f * i
-            //         f * i
-            //                   f * i
-            //                            f * i
+
+
+    //    5. Game Development 101
+    //       5.1 Welcome to the world of game development!
+    //           You are going to build a high-low guessing game. Create a class named HighLow
+    //           inside of src.
+    //
+    //       5.2 The specs for the game are:
+    //
+    //           5.2.1 Game picks a random number between 1 and 100.
+    //           5.2.2 Prompts user to guess the number.
+    //           5.2.3 All user inputs are validated.
+    //           5.2.4 If user's guess is less than the number, it outputs "HIGHER".
+    //           5.2.5 If user's guess is more than the number, it outputs "LOWER".
+    //           5.2.6 If a user guesses the number, the game should declare "GOOD GUESS!"
+    //
+    //           --- Hints
+    //
+    //               Use the random method of the java.lang.Math class to generate a random number.
+
+    // BONUS
+
+    //   5.B.1 Keep track of how many guesses a user makes.
+    //   5.B.2 Set an upper limit on the number of guesses.
+
+
+
+
+
+
+
 
 
 

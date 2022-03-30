@@ -25,7 +25,7 @@ public class Bob {
     public static String BobsReply(String s){
         if(s.endsWith("?")) return "Sure";
         if(s.endsWith("!")) return "Whoa, chill out!";
-        if(s.equals("")) return "Fine. Be that way!";
+        if(s.isEmpty()) return "Fine. Be that way!";
         return "Whatever";
     }
 
