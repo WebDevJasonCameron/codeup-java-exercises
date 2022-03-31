@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -51,21 +52,33 @@ public class ConsoleAdventureGame {
 
         // GAME VARS
         Scanner sc = new Scanner(System.in);
-        String userName;
         int d1;
         int d2;
         int gamePoints = 0;
-            // INVENTORY
-            int healthPotion = 0;
-            int freezePotion = 0;
-            int firePotion = 0;
-            boolean stick = false;
-            boolean rock = false;
-            boolean rustySword = false;
-            boolean shinySword = false;
-            boolean staff = false;
+
+        // INVENTORY VARS
+        int healthPotion = 0;
+        int freezePotion = 0;
+        int firePotion = 0;
+        boolean stick = false;
+        boolean rock = false;
+        boolean rustySword = false;
+        boolean shinySword = false;
+        boolean staff = false;
+
+        // PLAYER VARS
+        String pName;
+        int pHealth;
+
+        // ENEMY VARS
+        String eName;
+        int eHealth;
+
+        // NAR
 
 
+        // START =============================================================
+        pName = scrIntro(sc);
 
 
 
@@ -78,36 +91,32 @@ public class ConsoleAdventureGame {
     /**
          GAME OBJECTS
          01. Parts
-             - Dice               ... 2d 6
+             - Dice               ... 2d 6                                      <--DONE
              - Board (Diff Scenes)
                                   ... 3 scenes (not including intro)
          02. Player
-             - Name
-             - Health
-             - Game Points
+             - Name                                                             <--DONE
+             - Health                                                           <--DONE
+             - Game Points                                                      <--DONE
          03. Inventory
-             - Weapons
+             - Weapons                                                          <--DONE
                -- Stick           ... 1pt dmg
                -- Rock            ... 1pt dmg
                -- Rusty Sword     ... 3pt dmg
                -- Shiny Sword     ... 5pt dmg
                -- Staff           ... 4pt dmg
          04. Enemy
-             - Name
-             - Health
+             - Name                                                             <--DONE
+             - Health                                                           <--DONE
              - Dialog
              - Appearance
              - Drop (points & treasure)
     */
 
-
-
-
-
     /**
         GAME MECHANICS
-        00. Scanner
-        01. Random Rolls
+        00. Scanner                                                             <--DONE
+        01. Random Rolls                                                        <--DONE
         02. Inventory
             - Add/Reduce/Remove Items
             - Observe
@@ -115,7 +124,9 @@ public class ConsoleAdventureGame {
             - Wrong Command
             - Scene Nav
         04. Actions
-            - Fight
+            - Challenges                                                       <--DONE
+                -- Fight
+                -- Dodge
             - Run
             - Heal
             - Observe
@@ -125,6 +136,10 @@ public class ConsoleAdventureGame {
             - Death
             - Add Game Points
     */
+    public static String getName(Scanner sc){
+        System.out.println("Would you like to tell me your name?");
+        return sc.nextLine();
+    }
 
     public static int roll(int d1, int d2){
         Random random = new Random();
@@ -133,6 +148,62 @@ public class ConsoleAdventureGame {
         return d1 + d2;
     }
 
+    public static String playerVrEnemy(int d1, int d2){
+        int p = roll(d1, d2);
+        int e = roll(d1, d2);
+        if(p > e) {
+            return "p";
+        } else if (e > p){
+            return "e";
+        } else {
+            return "t";
+        }
+    }
+
+    public static int actionMenu(Scanner sc){
+        System.out.println("" +
+                "Your may either: \n" +
+                "1. Observe\t 2. Fight\t 3. Dodge\t 4. Heal\t 5. Use Item\t 6. Check Stats\t 7. Run Away");
+        String r = sc.nextLine().toLowerCase(Locale.ROOT);
+        return switch (r) {
+            case "1", "observe", "o" -> 1;
+            case "2", "fight", "f" -> 2;
+            case "3", "dodge", "d" -> 3;
+            case "4", "heal", "h" -> 4;
+            case "5", "use item", "use", "u" -> 5;
+            case "6", "check status", "check", "c" -> 6;
+            case "7", "run away", "run", "r" -> 7;
+            default -> -1;
+        };
+    }
+
+    public static void initiateAction(int choiceNum, Scanner sc){
+        switch (choiceNum){
+            case 1:
+                System.out.println("observer");
+                break;
+            case 2:
+                System.out.println("fight");
+                break;
+            case 3:
+                System.out.println("dodge");
+                break;
+            case 4:
+                System.out.println("heal");
+                break;
+            case 5:
+                System.out.println("use");
+                break;
+            case 6:
+                System.out.println("check stats");
+                break;
+            case 7:
+                System.out.println("run");
+            case -1:
+                System.out.println("That was not listed.  Please try again...");
+                actionMenu(sc);
+        }
+    }
 
     /**
         GAME FLOW
@@ -156,10 +227,23 @@ public class ConsoleAdventureGame {
         09. Ending and Credits
     */
 
-
-
-
+    public static String scrIntro(Scanner sc){
+        System.out.println("" +
+                "Hello there. \n" +
+                "I am the GM of this legendary adventure game!\n" +
+                "Welcome!\n" +
+                "Though, I will probably be the last person you ever speak to again...");
+        String pName = getName(sc);
+        System.out.println("" +
+                "Well, " + pName + " should be easy enough to put on your grave...\n" +
+                "Ur...I mean... That's a fine name!  Very fine name!!\n" +
+                pName + ", yes indeed.  I'm sure you will do just fine.  Nope, no worries." +
+                "....................");
+        return pName;
     }
+
+
+
 
 
 
