@@ -2,16 +2,18 @@ public class JavaWarmups {
     public static void main(String[] args) {
 
         // 2022 03 31
+        /**
         System.out.println(returnFirstCapitalLetter("hellO"));      // returns 'O'
         System.out.println(returnFirstCapitalLetter("hello"));      // returns ' '
         System.out.println(returnFirstCapitalLetter("hEllo"));      // returns 'E'
         System.out.println(returnFirstCapitalLetter("hELlO"));      // returns 'E'
         System.out.println(returnFirstCapitalLetter("H"));          // returns 'H'
+        */
 
         // 2022 04 01
 
-
-
+        int y = 7;
+        String x = "" + 7;
 
 
     }  //  <-- END MAIN
