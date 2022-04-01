@@ -10,12 +10,15 @@ class InputTest{
         /**
          System.out.println("Type something... ");
          System.out.println(input.getString());
-         System.out.println("Yes or No...  ");
-         System.out.println(input.yesNo());
-         System.out.println(input.getInt(1, 10));
          */
-        System.out.println(input.getInt(1, 10));
+         System.out.println();
 
+         System.out.println(input.yesNo("Yes or No...  "));
+          /**
+         System.out.println(input.getInt(1, 10));
+
+        System.out.println(input.getInt(1, 10));
+        */
     }
 }
 
@@ -23,7 +26,8 @@ class InputTest{
 public class Input {
 
     // VARS
-    private final Scanner scanner  =  new Scanner(System.in);
+    private final Scanner scannerNum  =  new Scanner(System.in);
+    private final Scanner scannerStr  =  new Scanner(System.in);
 
     // CONSTRUCTOR
     public Input() {
@@ -31,22 +35,22 @@ public class Input {
 
     // METH
     public String getString(){
-        return scanner.nextLine();
+        return scannerStr.nextLine();
     }
     public String getString(String prompt){
         System.out.println(prompt);
-        return scanner.nextLine();
+        return scannerStr.nextLine();
     }
 
     //  The yesNo method should return true if the user enters y, yes, or
     //  variants thereof, and false otherwise.
     public boolean yesNo(){
-        String r = scanner.nextLine().toLowerCase(Locale.ROOT);
+        String r = scannerStr.nextLine().toLowerCase(Locale.ROOT);
         return r.equals("yes") || r.equals("y");
     }
     public boolean yesNo(String prompt){
         System.out.println(prompt);
-        String r = scanner.nextLine().toLowerCase(Locale.ROOT);
+        String r = scannerStr.nextLine().toLowerCase(Locale.ROOT);
         return r.equals("yes") || r.equals("y");
     }
 
@@ -54,10 +58,21 @@ public class Input {
     //  input until they give an integer within the min and max
     public int getInt(){
         while (true){
-            if(scanner.hasNextInt()){
-                return scanner.nextInt();
+            if(scannerNum.hasNextInt()){
+                return scannerNum.nextInt();
             } else {
-                scanner.next();
+                scannerNum.next();
+                System.out.println("try again....");
+            }
+        }
+    }
+    public int getInt(String prompt){
+        System.out.println(prompt);
+        while (true){
+            if(scannerNum.hasNextInt()){
+                return scannerNum.nextInt();
+            } else {
+                scannerNum.next();
                 System.out.println("try again....");
             }
         }
@@ -89,10 +104,21 @@ public class Input {
     //  input until they give an integer within the min and max
     public double getDouble(){
         while (true){
-            if(scanner.hasNextDouble()){
-                return scanner.nextDouble();
+            if(scannerNum.hasNextDouble()){
+                return scannerNum.nextDouble();
             } else {
-                scanner.next();
+                scannerNum.next();
+                System.out.println("try again....");
+            }
+        }
+    }
+    public double getDouble(String prompt){
+        System.out.println(prompt);
+        while (true){
+            if(scannerNum.hasNextDouble()){
+                return scannerNum.nextDouble();
+            } else {
+                scannerNum.next();
                 System.out.println("try again....");
             }
         }
