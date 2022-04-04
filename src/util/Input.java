@@ -79,24 +79,24 @@ public class Input {
     }
     public int getInt(int min, int max){
         while (true){
-            System.out.println("Provide a number between " + min + " and " + max +".");
+            System.out.println("Provide a number between " + (min + 1) + " and " + (max - 1) +".");
             int x = getInt();
-            if(x > min && x < max){
+            if(x >= min && x <= max){
                 return x;
             } else {
-                System.out.println("Number not between " + min + " and " + max +".");
+                System.out.println("Number not between " + (min + 1) + " and " + (max - 1) +".");
             }
         }
     }
     public int getInt(int min, int max, String prompt){
         System.out.println(prompt);
         while (true){
-            System.out.println("Provide a number between " + min + " and " + max +".");
+            System.out.println("Provide a number between " + (min + 1) + " and " + (max - 1) +".");
             int x = getInt();
-            if(x > min && x < max){
+            if(x >= min && x <= max){
                 return x;
             } else {
-                System.out.println("Number not between " + min + " and " + max +".");
+                System.out.println("Number not between " + (min + 1) + " and " + (max - 1) +".");
             }
         }
     }
@@ -125,12 +125,12 @@ public class Input {
     }
     public double getDouble(double min, double max){
         while (true){
-            System.out.println("Provide a number between " + min + " and " + max +".");
+            System.out.println("Provide a number between " + (min + 1) + " and " + (max - 1) +".");
             double x = getDouble();
-            if(x > min && x < max){
+            if(x >= min && x <= max){
                 return x;
             } else {
-                System.out.println("Number not between " + min + " and " + max +".");
+                System.out.println("Number not between " + (min + 1) + " and " + (max - 1) +".");
             }
         }
     }
@@ -138,12 +138,12 @@ public class Input {
     public double getDouble(double min, double max, String prompt){
         System.out.println(prompt);
         while (true){
-            System.out.println("Provide a number between " + min + " and " + max +".");
+            System.out.println("Provide a number between " + (min + 1) + " and " + (max - 1) +".");
             double x = getDouble();
-            if(x > min && x < max){
+            if(x >= min && x <= max){
                 return x;
             } else {
-                System.out.println("Number not between " + min + " and " + max +".");
+                System.out.println("Number not between " + (min + 1) + " and " + (max - 1) +".");
             }
         }
     }
