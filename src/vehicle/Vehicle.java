@@ -5,11 +5,11 @@ public class Vehicle {
     private String color;
 
     // CON
+    public Vehicle(){};
     public Vehicle(String name, String color) {
         this.name = name;
         this.color = color;
     }
-    public Vehicle(){};
 
     // GETS
     public String getName() {
