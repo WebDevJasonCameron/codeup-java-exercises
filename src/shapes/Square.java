@@ -17,11 +17,22 @@ public class Square extends Quadrilateral implements Measurable{
     // O SETS
 
     // O METH
-
-
-
-
-
+    @Override
+    public int getPerimeter() {
+        return side * 4;
+    }
+    @Override
+    public int getPerimeter(int side) {
+        return side * 4;
+    }
+    @Override
+    public int getArea() {
+        return side * side;
+    }
+    @Override
+    public int getArea(int side) {
+        return side * side;
+    }
 
 
     /**

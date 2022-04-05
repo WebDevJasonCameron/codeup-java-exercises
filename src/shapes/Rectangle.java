@@ -11,12 +11,21 @@ public class Rectangle extends Quadrilateral implements Measurable{
     public Rectangle(int length, int width) {
         super(length, width);
     }
+
+
     // O GETS
 
     // O SETS
 
     // O METH
-
+    @Override
+    public int getPerimeter() {
+        return (this.width * 2) + (this.length * 2);
+    }
+    @Override
+    public int getArea() {
+        return this.width * this.length;
+    }
 
 
 
