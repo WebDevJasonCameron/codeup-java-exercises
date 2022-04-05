@@ -1,9 +1,31 @@
 package shapes;
 
-public class Rectangle {
+public class Rectangle extends Quadrilateral implements Measurable{
+
+    // F
+
+    // CON
+    public Rectangle() {
+        super();
+    }
+    public Rectangle(int length, int width) {
+        super(length, width);
+    }
+    // O GETS
+
+    // O SETS
+
+    // O METH
 
 
-    // FIELDS
+
+
+
+
+
+    /**
+     * PRIOR Class work
+    //FIELDS
     protected static int length;
     protected static int width;
 
@@ -36,5 +58,5 @@ public class Rectangle {
     public static int getArea(){
         return length * width ;
     }
-
+ */
 }
