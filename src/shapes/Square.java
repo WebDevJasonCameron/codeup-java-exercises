@@ -3,7 +3,7 @@ package shapes;
 public class Square extends Quadrilateral implements Measurable{
 
     // F
-    protected int side;
+    private int side;
 
     // CON
     public Square() {
@@ -14,24 +14,33 @@ public class Square extends Quadrilateral implements Measurable{
     }
     // O GETS
 
+
     // O SETS
+    public void setLength(int length){
+           this.length = length;
+           this.width = length;
+    }
+    public void setWidth(int width){
+        this.length = width;
+        this.width = width;
+    }
 
     // O METH
     @Override
     public int getPerimeter() {
-        return side * 4;
+        return this.side * 4;
     }
     @Override
-    public int getPerimeter(int side) {
-        return side * 4;
+    public int getPerimeter(int length, int width) {
+        return (length * 2) + (width * 2);
     }
     @Override
     public int getArea() {
-        return side * side;
+        return length * width;
     }
     @Override
     public int getArea(int side) {
-        return side * side;
+        return length * width;
     }
 
 

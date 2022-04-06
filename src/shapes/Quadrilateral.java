@@ -8,9 +8,9 @@ abstract class Quadrilateral extends Shape implements Measurable{
 
     // CON
     public Quadrilateral(){}
-    public Quadrilateral(int width) {
-        this.width = width;
-    }
+//    public Quadrilateral(int width) {
+//        this.width = width;
+//    }
     public Quadrilateral(int length, int width) {
         this.length = length;
         this.width = width;

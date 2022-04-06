@@ -1,10 +1,30 @@
+import java.util.ArrayList;
+
 public class Person {
     public static void main(String[] args) {
 
+        /**
         Person person = new Person("Smash");
         System.out.println(person.getName());
         person.setName("Capt Smash");
         person.sayHello();
+         */
+
+        Person p1 = new Person("Smash");
+        Person p2 = new Person("Calvin");
+        Person p3 = new Person("Mocha");
+
+        ArrayList<Person> people = new ArrayList<>();
+        people.add(p1);
+        people.add(p2);
+        people.add(p3);
+
+        for (int i = 0; i < people.size(); i++) {
+            System.out.println( people.get(i).getName());
+        }
+
+
+
 
         // 1. The following code blocks make use of the Person class from the previous exercise.
         //    For each code block, think about what the code will output, then copy the code into
