@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Student {
     public static void main(String[] args) {
 
+        /**
         // TEST
         Student s1 = new Student("John");
         System.out.println(s1.getName());
@@ -13,9 +14,9 @@ public class Student {
         s1.addGrade(80);
         s1.addGrade(75);
 
-        s1.showGradeList();
+        s1.printGradeList();
         System.out.println(s1.getGradeAverage());
-
+        */
 
     }  //  <--END MAIN
 
@@ -50,7 +51,7 @@ public class Student {
         return output / div;
     }
 
-    public void showGradeList(){
+    public void printGradeList(){
         System.out.println("List of Grades: ");
         for (Integer integer : gradeList) {
             System.out.print(integer + " ");
