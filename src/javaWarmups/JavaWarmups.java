@@ -1,3 +1,5 @@
+package javaWarmups;
+
 public class JavaWarmups {
     public static void main(String[] args) {
 
@@ -8,12 +10,16 @@ public class JavaWarmups {
         System.out.println(returnFirstCapitalLetter("hEllo"));      // returns 'E'
         System.out.println(returnFirstCapitalLetter("hELlO"));      // returns 'E'
         System.out.println(returnFirstCapitalLetter("H"));          // returns 'H'
-        */
+
 
         // 2022 04 01
 
         int y = 7;
         String x = "" + 7;
+               */
+
+        // 2022 04 07
+
 
 
     }  //  <-- END MAIN
@@ -30,11 +36,32 @@ public class JavaWarmups {
             if(string.charAt(i) >= 'A' && string.charAt(i) <= 'Z' ) return string.charAt(i);
         }
         return ' ';
-
-    // 2022 03 31       ================================= WARM UP
-    //
-
-
-
     }
-}
+
+    // 2022 04 07       ================================= WARM UP
+    //# Java Assessment Practice Problems
+    //
+    // 1. Create a class called Practice with a main method.
+    //
+    // 2. Create a public static method in main called *subtractTen* that takes one
+    //    integer argument and returns that number minus 10.
+    //
+    // 3. Create a public static method *average* that takes an array of integers
+    //    and returns their average as a double.
+    //
+    // 4. Create a class called Pet with two String instance variables, name and type.
+
+    // 5. Create getters and setters for the properties as well as a constructor that
+    //    takes two strings and sets the name and type.
+    //
+    // 6. Create a PetDog class that inherits from Pet.
+    // 7. In PetDog, create a boolean instance variable, trained.
+    // 8. Write a constructor for PetDog that sets its name, type, and trained properties.
+    // 9. Write an instance method in PetDog  called isTrained that returns the boolean
+    // value of the trained property.
+
+
+
+
+
+}  //  <--END
