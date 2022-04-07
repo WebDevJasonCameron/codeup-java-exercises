@@ -3,6 +3,7 @@ package grades;
 import util.Input;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class GradesApplication {
     public static void main(String[] args) {
@@ -84,11 +85,18 @@ public class GradesApplication {
         System.out.println(students.get(keyCheck()).getGradeAverage());
     }
 
-
     public void printUserNames(){
         System.out.println("List of student GH usernames:  ");
-        System.out.println(students.keySet());
+        Set<String> gitHubUserNames = students.keySet();
+        for (String gHUN : gitHubUserNames){
+            System.out.printf(" |%s| ", gHUN);
+        }
+        System.out.println();
+
     }
+
+
+
 
     public String keyCheck(){
         String output = input.getString(
@@ -104,6 +112,30 @@ public class GradesApplication {
     }
 
 
+    //BONUS
+    public void printAllStudentsAndGrades(){
+        students.forEach((k, v) -> {
+            printStudentNameFromUN(k);
+            printStudentGradeListFromUN(k);
+            printStudentGradeAverageFromUN(k);
+            System.out.println();
+        });
+    }
+
+    public double getClassAverage(){
+        double output = 0;
+        int div = students.size();
+        for(String un : students.keySet()){
+            output += students.get(un).getGradeAverage();
+        }
+        return output / div;
+    }
+
+    public void printClassAverage(){
+        System.out.println("The Class Average is:  " + getClassAverage());
+    }
+
+    // RUN
     public int menu(){
         System.out.println("PLease select from the following list...\n" +
                 "1. See GH username list\n" +
@@ -111,36 +143,60 @@ public class GradesApplication {
                 "3. See Student Grade List\n" +
                 "4. See Student Average Grade\n" +
                 "5. See Name, Grade List, and Average Grade\n" +
-                "6. See Menu\n" +
-                "7. End Application");
-         return input.getInt(1, 7);
+                "6. See All Student's names and grades\n" +
+                "7. See Class Average\n" +
+                "8. See Menu\n" +
+                "9. End Application");
+        return input.getInt(1, 9);
     }
-
 
     public boolean action(int userChoice){
         switch (userChoice) {
             case 1:
+                System.out.println("\n--------------------------------------\n");
                 printUserNames();
+                System.out.println("\n--------------------------------------\n");
                 return true;
             case 2:
+                System.out.println("\n--------------------------------------\n");
                 printStudentNameFromUN();
+                System.out.println("\n--------------------------------------\n");
                 return true;
             case 3:
+                System.out.println("\n--------------------------------------\n");
                 printStudentGradeListFromUN();
+                System.out.println("\n--------------------------------------\n");
                 return true;
             case 4:
+                System.out.println("\n--------------------------------------\n");
                 printStudentGradeAverageFromUN();
+                System.out.println("\n--------------------------------------\n");
                 return true;
             case 5:
+                System.out.println("\n--------------------------------------\n");
                 String username = input.getString("Please Provide GH Username:\n");
                 printStudentNameFromUN(username);
                 printStudentGradeListFromUN(username);
                 printStudentGradeAverageFromUN(username);
+                System.out.println("\n--------------------------------------\n");
                 return true;
             case 6:
-                menu();
+                System.out.println("\n--------------------------------------\n");
+                printAllStudentsAndGrades();
+                System.out.println("\n--------------------------------------\n");
                 return true;
             case 7:
+                System.out.println("\n--------------------------------------\n");
+                printClassAverage();
+                System.out.println("\n--------------------------------------\n");
+                return true;
+            case 8:
+                System.out.println("\n--------------------------------------\n");
+                menu();
+                System.out.println("\n--------------------------------------\n");
+                return true;
+            case 9:
+                System.out.println("\n--------------------------------------\n");
                 System.out.println("Ending Application...");
                 return false;
             default:
@@ -160,3 +216,9 @@ public class GradesApplication {
     }
 
 }  //  <--END
+
+
+//      Set<String> gitHubUserNames = students keySet();
+//      for (String gitHubUserNames : gitHubUserNames){
+//          System.out.printf(" |%s| ", gitHubUserName;
+//      }
