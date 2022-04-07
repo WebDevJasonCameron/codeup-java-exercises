@@ -1,27 +1,9 @@
 package util;
+
+import jdk.incubator.vector.VectorOperators;
+
 import java.util.Locale;
 import java.util.Scanner;
-
-class InputTest{
-    public static void main(String[] args) {
-
-        Input input = new Input();
-
-        /**
-         System.out.println("Type something... ");
-         System.out.println(input.getString());
-         */
-         System.out.println();
-
-         System.out.println(input.yesNo("Yes or No...  "));
-          /**
-         System.out.println(input.getInt(1, 10));
-
-        System.out.println(input.getInt(1, 10));
-        */
-    }
-}
-
 
 public class Input {
 
@@ -56,6 +38,8 @@ public class Input {
 
     //  The getInt(int min, int max) method should keep prompting the user for
     //  input until they give an integer within the min and max
+    /**
+     * PRIOR ASSIGNMENT
     public int getInt(){
         while (true){
             if(scannerNum.hasNextInt()){
@@ -66,7 +50,8 @@ public class Input {
             }
         }
     }
-    public int getInt(String prompt){
+
+        public int getInt(String prompt){
         System.out.println(prompt);
         while (true){
             if(scannerNum.hasNextInt()){
@@ -77,6 +62,45 @@ public class Input {
             }
         }
     }
+
+    public int getInt(){
+        while (true){
+            try{
+                return Integer.parseInt(getString());
+            } catch (NumberFormatException nfx){
+                System.out.println("This input was not an integer...");
+            }
+        }
+    }
+    public int getInt(String prompt){
+        System.out.println(prompt);
+        while (true){
+            try{
+                return Integer.parseInt(getString());
+            } catch (NumberFormatException nfx){
+                System.out.println("This input was not an integer...");
+            }
+        }
+    }
+    */
+    public int getInt(){
+        try{
+            return Integer.parseInt(getString());
+        } catch (NumberFormatException nfx){
+            System.out.println("This input was not an integer...");
+            return getInt();
+        }
+    }
+    public int getInt(String prompt){
+        System.out.println(prompt);
+        try{
+            return Integer.parseInt(getString());
+        } catch (NumberFormatException nfx){
+            System.out.println("This input was not an integer...");
+            return getInt(prompt);
+        }
+    }
+
     public int getInt(int min, int max){
         while (true){
             System.out.println("Provide a number between " + min + " and " + max +".");
@@ -100,8 +124,11 @@ public class Input {
             }
         }
     }
+
     //  The getInt(double min, double max) method should keep prompting the user for
     //  input until they give an integer within the min and max
+    /**
+     * PRIOR ASSGNMENT
     public double getDouble(){
         while (true){
             if(scannerNum.hasNextDouble()){
@@ -123,6 +150,26 @@ public class Input {
             }
         }
     }
+    */
+
+    public double getDouble(){
+        try{
+            return Double.parseDouble(getString());
+        } catch (NumberFormatException nfx){
+            System.out.println("This input was not an double...");
+            return getDouble();
+        }
+    }
+    public double getDouble(String prompt){
+        System.out.println(prompt);
+        try{
+            return Double.parseDouble(getString());
+        } catch (NumberFormatException nfx){
+            System.out.println("This input was not an double...");
+            return getDouble(prompt);
+        }
+    }
+
     public double getDouble(double min, double max){
         while (true){
             System.out.println("Provide a number between " + min + " and " + max +".");
@@ -134,7 +181,6 @@ public class Input {
             }
         }
     }
-
     public double getDouble(double min, double max, String prompt){
         System.out.println(prompt);
         while (true){
@@ -148,6 +194,11 @@ public class Input {
         }
     }
 
+    public int getBinary(){
+        int output = 111;
+        return output;
+    }
 
 
-}
+
+}  //  <--END
