@@ -1,6 +1,5 @@
 package util;
 
-import jdk.incubator.vector.VectorOperators;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -195,10 +194,21 @@ public class Input {
     }
 
     public int getBinary(){
-        int output = 111;
-        return output;
+        try {
+            return Integer.parseInt(getString(), 2);
+        } catch (NumberFormatException nfe){
+            System.out.println("Number Format Exception: " + nfe);
+            return getBinary();
+        }
     }
-
-
+    public int getBinary(String prompt){
+        System.out.println(prompt);
+        try {
+            return Integer.parseInt(getString(), 2);
+        } catch (NumberFormatException nfe){
+            System.out.println("Number Format Exception: " + nfe);
+            return getBinary(prompt);
+        }
+    }
 
 }  //  <--END

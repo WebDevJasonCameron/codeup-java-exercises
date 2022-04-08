@@ -21,7 +21,20 @@ class InputTest{
 
         // ERROR EXCEPTION HANDLING ASSIGNMENT
 //        System.out.println(input.getInt("Please provide an integer: "));
-        System.out.println(input.getDouble("Please provide an integer: "));
+//        System.out.println(input.getDouble("Please provide an integer: "));
+
+        /**
+         * EXAMPLES
+        int num = 10;
+        System.out.println("Binary is " + Integer.toBinaryString(num));
+
+        num = 9;
+        System.out.println("Binary is " + Integer.toBinaryString(num));
+
+        int foo = Integer.parseInt("1001", 2);
+        System.out.println(foo);
+        */
+        input.getBinary();
 
     }  //  <--END MAIN
 }  //  <--END
