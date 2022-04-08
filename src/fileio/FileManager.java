@@ -14,28 +14,29 @@ import java.util.List;
  */
 public class FileManager {
 
-    // Blog Class
-    // Person Class
+    private String filename;
+    private String directory;
+    private List<String> fileData; // Returned data from the getFiles method
 
-    String filename;
-    String directory;
-    List<String> fileData;
+    // Get our path info?
+    private Path directoryPath; // could we move this somewhere else possibly?
+    private Path filePath;
 
     // Read a file!
     public FileManager(String filename, String directory) {
         this.filename = filename;
         this.directory = directory;
+
+        // Paths for dir and files
+        this.directoryPath = Paths.get(directory);
+        this.filePath =  Paths.get(directory, filename);
+
         this.fileData = getFile();
     }
 
     // Create a function called getFile
     // Return the file data
     private List<String> getFile() {
-
-        // Get our path info?
-        Path directoryPath = Paths.get(directory); // could we move this somewhere else possibly?
-        Path filePath = Paths.get(directory, filename);
-
 
         // Make sure the directory exists
         try {
@@ -71,13 +72,35 @@ public class FileManager {
         return data;
     }
 
+
+    public boolean writeFile() {
+
+        // Override the current data in the file, all of it
+
+        // need the path
+        // need the data
+        try {
+            Files.write(filePath ,fileData);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error writing to file: " + filename);
+            return false;
+        }
+
+        return true;
+    }
+
+    public List<String> addLine(String string) {
+        fileData.add(string);
+        writeFile(); // as soon as the data is added, we write the file.
+        return fileData;
+    }
+
     // Way to print all the lines of the file so we can see its contents quickly
     public void printLines() {
         for (String line : fileData) {
             System.out.println(line);
         }
-
-
     }
 
 }
