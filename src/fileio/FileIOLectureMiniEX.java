@@ -21,7 +21,7 @@ public class FileIOLectureMiniEX {
         // Path, 1 directory being passed as argument
         Path oneDirectoryPath = Paths.get("data");
 
-        System.out.println("oneDirectoryPth.toAbsolutePath() = " + oneDirectoryPath.toAbsolutePath());
+        System.out.println("oneDirectoryPath.toAbsolutePath() = " + oneDirectoryPath.toAbsolutePath());
 
         // Path, 3 arguments, 2 dir + filename
 
@@ -29,7 +29,7 @@ public class FileIOLectureMiniEX {
 
         //Absolute Path
 
-        Path absolutePath = Paths.get("./", "User");
+        Path absolutePath = Paths.get("/", "User");
 
         System.out.println("absolutePath.isAbsolute() = " + absolutePath.isAbsolute());
 

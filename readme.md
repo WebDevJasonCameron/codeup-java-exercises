@@ -1,5 +1,8 @@
 # Codeup Java Exercises
 
+## 2022 04 12 | Java Assessment Comp
+Today we completed the assessment that covered Java 1 and 2.  
+
 ## 2022 03 29 | Strings
 Completed the String Ls and Ex for today.  Much of the day was spent working on the prior day's assignment.  I will spend the rest of the day working on the next assignments... or maybe the movie refactor project
 

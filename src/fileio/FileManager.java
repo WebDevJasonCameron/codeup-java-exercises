@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class FileManager {
 
+    // F
     private String filename;
     private String directory;
     private List<String> fileData; // Returned data from the getFiles method
